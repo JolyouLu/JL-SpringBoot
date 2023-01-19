@@ -10,8 +10,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @EnableAspectJAutoProxy
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@MapperScan("top.jolyoulu.**.dao")
-@ComponentScan(basePackages = {"top.jolyoulu.*"})
+@MapperScan("top.jolyoulu.**.dao")                  //Mapper扫描
+@ComponentScan(basePackages = {"top.jolyoulu.*"})   //Bean扫描
 public class BootstrapApplication {
 
     public static void main(String[] args) {
