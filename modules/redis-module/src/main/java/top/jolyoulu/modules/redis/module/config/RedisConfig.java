@@ -26,8 +26,8 @@ import java.time.Duration;
 
 /**
  * @Author: JolyouLu
- * @Date: 2021/8/21 14:34
- * @Version 1.0
+ * @Date: 2023/1/19 19:43
+ * @Description Redis序列化/反序列化配置
  */
 @EnableCaching
 @Configuration
