@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    druid:
+      #数据库驱动
+      driverClassName: com.mysql.cj.jdbc.Driver
+      #数据库地址
+      jdbcUrl: jdbc:mysql://localhost:3306/course_db
+      #数据库用户与密码
+      username: root
+      password: 123456
+  redis:
+    #Redis共16分片。默认0
+    database: 1
+    #Redis服务器地址
+    host: localhost
+    #Redis连接密码，默认空
+    password:
+    #Redis端口
+    port: 6379
+    timeout: 1000
+    lettuce:
+      pool:
+        max-active: 100
+        max-wait: 1000
+        max-idle: 16
+        min-idle: 5
+
+logging:
+  config: classpath:logback.xml
+  level:
+    cms.server: debug
+  file:
+    path: C://Users//mi//Downloads//${spring.application.name}
