@@ -22,6 +22,7 @@
         <module>logback-module</module>
         <module>druid-module</module>
         <module>mybatisplus-module</module>
+        <module>apiversion-module</module>
     </modules>
 
     <dependencies>

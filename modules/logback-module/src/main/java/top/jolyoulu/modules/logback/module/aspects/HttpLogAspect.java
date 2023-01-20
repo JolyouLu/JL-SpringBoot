@@ -1,6 +1,7 @@
 package top.jolyoulu.modules.logback.module.aspects;
 
 
+import com.alibaba.fastjson2.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -35,7 +36,7 @@ public class HttpLogAspect {
         Object ob = pjp.proceed();
         long endTime = System.currentTimeMillis();
         // 打印日志
-        String appVersion = request.getHeader("app-version");
+        String appVersion = request.getHeader("api-version");
         StringBuilder logStr = new StringBuilder();
         logStr.append("\nINFO: ").append(request.getMethod()).append(" ") //请求类型
                 .append("app-version=").append(StringUtils.isBlank(appVersion) ? "1.0.0" : appVersion).append(" ") //版本号
@@ -43,8 +44,8 @@ public class HttpLogAspect {
                 .append(endTime - startTime).append("ms"); //耗时
         logStr.append("\nINFO: ").append("class-method=").append(pjp.getSignature().getDeclaringTypeName()).append(".").append(pjp.getSignature().getName()); //实现方法
         logStr.append("\nINFO: ").append("args=").append(Arrays.toString(pjp.getArgs())); //请求参数
+        logStr.append("\nINFO: ").append("return=").append(ob); //返回值
         log.info(logStr.toString());
-        log.debug("返回值 : " + ob);
         return ob;
     }
 }

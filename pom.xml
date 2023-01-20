@@ -30,10 +30,19 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <!--项目提供的可选模块-->
+        <jl.common.version>0.0.1-SNAPSHOT</jl.common.version>
+        <jl.druid.module.version>0.0.1-SNAPSHOT</jl.druid.module.version>
+        <jl.logback.module.version>0.0.1-SNAPSHOT</jl.logback.module.version>
+        <jl.mybatisplus.module.version>0.0.1-SNAPSHOT</jl.mybatisplus.module.version>
+        <jl.redis.module.version>0.0.1-SNAPSHOT</jl.redis.module.version>
+        <jl.apiversion.module.version>0.0.1-SNAPSHOT</jl.apiversion.module.version>
+        <!--其余第三方包-->
         <springboot.version>2.7.7</springboot.version>
         <lombok.version>1.18.24</lombok.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <mybatis.plus.version>3.5.2</mybatis.plus.version>
+        <fastjson2.version>2.0.23</fastjson2.version>
     </properties>
 
     <dependencyManagement>
@@ -54,6 +63,48 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>common</artifactId>
+                <version>${jl.common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>druid-module</artifactId>
+                <version>${jl.druid.module.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>logback-module</artifactId>
+                <version>${jl.logback.module.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>mybatisplus-module</artifactId>
+                <version>${jl.mybatisplus.module.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>redis-module</artifactId>
+                <version>${jl.redis.module.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>apiversion-module</artifactId>
+                <version>${jl.apiversion.module.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

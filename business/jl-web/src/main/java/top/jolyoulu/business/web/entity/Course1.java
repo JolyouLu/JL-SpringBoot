@@ -1,11 +1,10 @@
 package top.jolyoulu.business.web.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @description course_1
@@ -33,6 +32,9 @@ public class Course1 {
     * cstatus
     */
     private String cstatus;
+
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
 
     public Course1() {}
 }

@@ -28,6 +28,6 @@ spring:
 logging:
   config: classpath:logback.xml
   level:
-    cms.server: debug
+    top.jolyoulu: debug
   file:
     path: C://Users//mi//Downloads//${spring.application.name}

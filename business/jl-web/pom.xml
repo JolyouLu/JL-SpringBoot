@@ -21,31 +21,31 @@
         <dependency>
             <groupId>top.jolyoulu</groupId>
             <artifactId>common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>top.jolyoulu</groupId>
             <artifactId>druid-module</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>top.jolyoulu</groupId>
             <artifactId>logback-module</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>top.jolyoulu</groupId>
             <artifactId>redis-module</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>apiversion-module</artifactId>
         </dependency>
 
         <dependency>
             <groupId>top.jolyoulu</groupId>
             <artifactId>mybatisplus-module</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

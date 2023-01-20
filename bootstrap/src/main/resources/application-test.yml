@@ -9,6 +9,6 @@ spring:
 logging:
   config: classpath:logback.xml
   level:
-    cms.server: debug
+    top.jolyoulu: debug
   file:
     path: C://Users//samson//Downloads//${spring.application.name}
