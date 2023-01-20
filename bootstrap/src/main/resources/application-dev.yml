@@ -29,5 +29,9 @@ logging:
   config: classpath:logback.xml
   level:
     top.jolyoulu: debug
+    springfox.documentation : debug
+    org.springframework.web.servlet : debug
+    org.mybatis : debug
   file:
     path: C://Users//mi//Downloads//${spring.application.name}
+

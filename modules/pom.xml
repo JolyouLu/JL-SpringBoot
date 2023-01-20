@@ -23,6 +23,7 @@
         <module>druid-module</module>
         <module>mybatisplus-module</module>
         <module>apiversion-module</module>
+        <module>swagger-module</module>
     </modules>
 
     <dependencies>

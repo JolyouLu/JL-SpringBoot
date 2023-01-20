@@ -47,6 +47,11 @@
             <groupId>top.jolyoulu</groupId>
             <artifactId>mybatisplus-module</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>swagger-module</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

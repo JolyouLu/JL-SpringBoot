@@ -1,6 +1,7 @@
 package top.jolyoulu.business.web.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -33,6 +34,7 @@ public class Course1 {
     */
     private String cstatus;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 

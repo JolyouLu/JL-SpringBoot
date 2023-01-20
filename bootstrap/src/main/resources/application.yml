@@ -3,3 +3,10 @@ spring:
     active: dev
   application:
     name: bootstrap
+
+# MyBatis配置
+mybatis-plus:
+  # 搜索指定包别名
+  type-aliases-package: top.jolyoulu.**.entity
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapper-locations: classpath*:mapper/**/*Mapper.xml

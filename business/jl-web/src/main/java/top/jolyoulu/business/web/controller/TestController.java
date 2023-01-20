@@ -3,6 +3,8 @@ package top.jolyoulu.business.web.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import top.jolyoulu.business.web.dao.Course1Mapper;
 import top.jolyoulu.business.web.entity.Course1;
+import top.jolyoulu.common.enums.GlobalExpType;
+import top.jolyoulu.common.exception.GlobalException;
 import top.jolyoulu.modules.apiversion.module.apiverion.ApiVersion;
 import top.jolyoulu.modules.redis.module.utils.RedisUtils;
 
@@ -22,6 +26,7 @@ import java.util.UUID;
  * @Date: 2023/1/19 14:41
  * @Version 1.0
  */
+@Api(tags = "TestController接口文档")
 @RestController
 @RequestMapping("/test")
 public class TestController {
@@ -55,6 +60,8 @@ public class TestController {
     @GetMapping("/mybatis")
     @ResponseBody
     public Object mybatis() {
+        //测试xml是否能扫描到
+        course1Mapper.selectAll();
         String uuid = UUID.randomUUID().toString();
         Course1 course1 = new Course1();
         course1.setUserId(new Random().nextLong());
@@ -90,5 +97,18 @@ public class TestController {
     @GetMapping("/apiversion")
     public String apiversion1_2_0(){
         return "v1.2.0";
+    }
+
+    //测试接口文档
+    @ApiOperation(value = "测试swagger文档")
+    @GetMapping("/swagger")
+    public void swagger(){
+
+    }
+
+    //测试自定义异常
+    @GetMapping("/myExp")
+    public void myExp(){
+        throw new GlobalException(GlobalExpType.UNKNOWN_ERROR);
     }
 }

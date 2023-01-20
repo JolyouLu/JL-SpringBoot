@@ -37,12 +37,14 @@
         <jl.mybatisplus.module.version>0.0.1-SNAPSHOT</jl.mybatisplus.module.version>
         <jl.redis.module.version>0.0.1-SNAPSHOT</jl.redis.module.version>
         <jl.apiversion.module.version>0.0.1-SNAPSHOT</jl.apiversion.module.version>
+        <jl.swagger.module.version>0.0.1-SNAPSHOT</jl.swagger.module.version>
         <!--其余第三方包-->
         <springboot.version>2.7.7</springboot.version>
         <lombok.version>1.18.24</lombok.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <mybatis.plus.version>3.5.2</mybatis.plus.version>
         <fastjson2.version>2.0.23</fastjson2.version>
+        <springfox.version>3.0.0</springfox.version>
     </properties>
 
     <dependencyManagement>
@@ -69,6 +71,12 @@
                 <groupId>com.alibaba.fastjson2</groupId>
                 <artifactId>fastjson2</artifactId>
                 <version>${fastjson2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.version}</version>
             </dependency>
 
             <dependency>
@@ -105,6 +113,12 @@
                 <groupId>top.jolyoulu</groupId>
                 <artifactId>apiversion-module</artifactId>
                 <version>${jl.apiversion.module.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>swagger-module</artifactId>
+                <version>${jl.swagger.module.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

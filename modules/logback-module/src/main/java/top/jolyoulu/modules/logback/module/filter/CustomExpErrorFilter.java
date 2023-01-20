@@ -5,7 +5,7 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.ThrowableProxy;
 import ch.qos.logback.core.filter.Filter;
 import ch.qos.logback.core.spi.FilterReply;
-import top.jolyoulu.common.enums.GlobalException;
+import top.jolyoulu.common.exception.GlobalException;
 
 /**
  * @Author: JolyouLu
