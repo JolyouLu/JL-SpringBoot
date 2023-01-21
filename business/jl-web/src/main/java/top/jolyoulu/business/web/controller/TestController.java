@@ -1,7 +1,6 @@
 package top.jolyoulu.business.web.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,8 +14,8 @@ import top.jolyoulu.business.web.dao.Course1Mapper;
 import top.jolyoulu.business.web.entity.Course1;
 import top.jolyoulu.common.enums.GlobalExpType;
 import top.jolyoulu.common.exception.GlobalException;
-import top.jolyoulu.modules.apiversion.module.apiverion.ApiVersion;
-import top.jolyoulu.modules.redis.module.utils.RedisUtils;
+import top.jolyoulu.modules.apiversionmodule.apiverion.ApiVersion;
+import top.jolyoulu.modules.redismodule.utils.RedisUtils;
 
 import java.util.Random;
 import java.util.UUID;

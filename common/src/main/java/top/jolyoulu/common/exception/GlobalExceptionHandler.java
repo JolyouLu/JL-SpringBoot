@@ -1,13 +1,11 @@
 package top.jolyoulu.common.exception;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.servlet.NoHandlerFoundException;
-import top.jolyoulu.common.constant.GlobalConstant;
 import top.jolyoulu.common.enums.GlobalExpType;
-import top.jolyoulu.common.utils.ResultInfo;
+import top.jolyoulu.common.entity.ResultInfo;
+
 
 /**
  * @Author: JolyouLu
@@ -19,21 +17,23 @@ import top.jolyoulu.common.utils.ResultInfo;
 public class GlobalExceptionHandler {
 
     /**
-     * 全局异常
-     */
-    @ExceptionHandler(GlobalException.class)
-    public ResultInfo baseException(GlobalException e){
-        log.error(e.getMessage(), e);
-        GlobalExpType expType = e.getGlobalExpType();
-        return ResultInfo.error(expType.getCode(),expType.getMessage());
-    }
-
-    /**
      * 其它未知的异常
      */
     @ExceptionHandler(Exception.class)
-    public ResultInfo handleException(Exception e) {
+    public ResultInfo handleException(Exception e) throws Exception {
+        //处理 SpringSecurity抛出异常但AccessDeniedHandler不生效
+        //捕获AccessDeniedException再抛出就可以被AccessDeniedHandler捕获到了
+        if (e.getClass().getName().equals("org.springframework.security.access.AccessDeniedException")){
+            throw e;
+        }
+        //全局异常
         log.error(e.getMessage(), e);
-        return ResultInfo.error(e.getMessage());
+        if (e instanceof GlobalException){
+            ((GlobalException) e).getGlobalExpType();
+            GlobalExpType expType = ((GlobalException) e).getGlobalExpType();
+            return ResultInfo.error(expType.getCode(),expType.getMessage());
+        }else {
+            return ResultInfo.error(e.getMessage());
+        }
     }
 }

@@ -48,7 +48,7 @@
     <!--打印GlobalException异常的日志-->
     <appender name="fileCustomErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果只是想要 Error 级别的日志，那么需要过滤一下，默认是 info 级别的，ThresholdFilter-->
-        <filter class="top.jolyoulu.modules.logback.module.filter.CustomExpErrorFilter"/>
+        <filter class="top.jolyoulu.modules.logbackmodule.filter.CustomExpErrorFilter"/>
         <!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则
             如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天
             的日志改名为今天的日期。即，<File> 的日志都是当天的。
@@ -73,7 +73,7 @@
     <!--打印其它未知异常的日志-->
     <appender name="fileFrameworkErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果只是想要 Error 级别的日志，那么需要过滤一下，默认是 info 级别的，ThresholdFilter-->
-        <filter class="top.jolyoulu.modules.logback.module.filter.FrameworkExpErrorFilter"/>
+        <filter class="top.jolyoulu.modules.logbackmodule.filter.FrameworkExpErrorFilter"/>
         <!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则
             如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天
             的日志改名为今天的日期。即，<File> 的日志都是当天的。
@@ -98,7 +98,7 @@
     <!--打印慢SQL的日志-->
     <appender name="fileLowSqlLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果只是想要 Error 级别的日志，那么需要过滤一下，默认是 info 级别的，ThresholdFilter-->
-        <filter class="top.jolyoulu.modules.logback.module.filter.LowSqlExpFilter"/>
+        <filter class="top.jolyoulu.modules.logbackmodule.filter.LowSqlExpFilter"/>
         <!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则
             如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天
             的日志改名为今天的日期。即，<File> 的日志都是当天的。

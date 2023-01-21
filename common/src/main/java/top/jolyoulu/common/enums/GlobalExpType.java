@@ -8,7 +8,11 @@ import lombok.Data;
  * @Description
  */
 public enum GlobalExpType {
-    UNKNOWN_ERROR(999,"未知错误");
+    UNAUTH_ERROR(1000,"请先登录授权"),
+    PERMISSION_DENIED(1002,"权限不足"),
+    USERNAME_PASSWORD_ERROR(1003,"用户名或密码错误"),
+    UNKNOWN_ERROR(9999,"未知错误")
+    ;
 
     private final Integer code;
     private final String message;

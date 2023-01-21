@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.jolyoulu.jlservice.dao.JlMenuMapper">
+
+    <select id="selectPermissionByUserId" resultType="java.lang.String">
+        SELECT distinct permission_value FROM jl_menu AS jm INNER JOIN (
+            SELECT menu_id FROM jl_role_menu AS jrm INNER JOIN (
+                SELECT role_id FROM jl_user_role WHERE user_id = #{userId}
+            ) AS tmp1 ON tmp1.role_id = jrm.role_id
+        ) AS tmp2 ON tmp2.menu_id = jm.id
+    </select>
+
+</mapper>

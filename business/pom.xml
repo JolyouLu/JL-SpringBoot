@@ -18,7 +18,8 @@
     <packaging>pom</packaging>
 
     <modules>
-
+        <module>jl-security</module>
+        <module>jl-service</module>
     </modules>
 
     <dependencies>

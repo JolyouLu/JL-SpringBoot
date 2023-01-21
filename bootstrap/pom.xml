@@ -28,6 +28,12 @@
             <artifactId>jl-web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>jl-security</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
