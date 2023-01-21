@@ -10,13 +10,13 @@ import top.jolyoulu.common.utils.MD5Utils;
  * @Description 默认的密码处理器，用于对密码md5加密处理与比较密码
  */
 @Component
-public class DefaultPasswordEncoder implements PasswordEncoder {
+public class DefaultPasswordEncoderImpl implements PasswordEncoder {
 
-    public DefaultPasswordEncoder() {
+    public DefaultPasswordEncoderImpl() {
         this(-1);
     }
 
-    public DefaultPasswordEncoder(int strength) {
+    public DefaultPasswordEncoderImpl(int strength) {
 
     }
 

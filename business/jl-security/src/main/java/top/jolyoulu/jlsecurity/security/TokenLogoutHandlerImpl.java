@@ -3,6 +3,8 @@ package top.jolyoulu.jlsecurity.security;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import top.jolyoulu.common.constant.GlobalConstant;
+import top.jolyoulu.common.constant.RedisConstant;
+import top.jolyoulu.jlsecurity.security.TokenManager;
 import top.jolyoulu.modules.redismodule.utils.RedisUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +16,12 @@ import java.util.Objects;
  * @Date: 2023/1/21 15:40
  * @Description 退出登录处理器
  */
-public class TokenLogoutHandler implements LogoutHandler {
+public class TokenLogoutHandlerImpl implements LogoutHandler {
 
     private TokenManager tokenManager;
     private RedisUtils redisUtils;
 
-    public TokenLogoutHandler(TokenManager tokenManager, RedisUtils redisUtils) {
+    public TokenLogoutHandlerImpl(TokenManager tokenManager, RedisUtils redisUtils) {
         this.tokenManager = tokenManager;
         this.redisUtils = redisUtils;
     }
@@ -32,8 +34,9 @@ public class TokenLogoutHandler implements LogoutHandler {
             //移除
             tokenManager.removeToken(token);
             //从token获取用户名
-            String userInfo = tokenManager.getUserIdFromToken(token);
-            redisUtils.del(userInfo);
+            String userId = tokenManager.getUserIdFromToken(token);
+            String key = RedisConstant.getToken(userId);
+            redisUtils.del(key);
         }
     }
 }

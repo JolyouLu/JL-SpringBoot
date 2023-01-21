@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import top.jolyoulu.common.constant.GlobalConstant;
 import top.jolyoulu.common.constant.RedisConstant;
 import top.jolyoulu.common.entity.ResultInfo;
 import top.jolyoulu.common.enums.GlobalExpType;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: JolyouLu
@@ -75,7 +77,7 @@ public class UsernamePasswordLoginFilter extends UsernamePasswordAuthenticationF
         String token = tokenManager.creatToken(user.getCurrentUserInfo());
         //把用户名称和用户权限列表加入到redis
         String key = RedisConstant.getToken(user.getCurrentUserInfo().getId());
-        redisUtils.set(key,user.getPermissionValueList() );
+        redisUtils.set(key,user.getPermissionValueList(), GlobalConstant.TOKEN_TIMEOUT, TimeUnit.SECONDS);
         //返回token
         ResponseUtils.outJson(response, ResultInfo.success(token));
     }

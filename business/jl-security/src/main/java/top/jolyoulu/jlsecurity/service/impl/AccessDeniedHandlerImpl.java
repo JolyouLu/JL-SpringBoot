@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * @Author: JolyouLu
  * @Date: 2023/1/21 21:20
- * @Description 权限不足的处理器
+ * @Description 权限不足的处理类
  */
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
     @Override

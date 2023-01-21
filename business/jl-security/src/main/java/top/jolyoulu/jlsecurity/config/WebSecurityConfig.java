@@ -13,12 +13,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import top.jolyoulu.jlsecurity.filter.TokenAuthenticationFilter;
 import top.jolyoulu.jlsecurity.filter.UsernamePasswordLoginFilter;
-import top.jolyoulu.jlsecurity.security.DefaultPasswordEncoder;
-import top.jolyoulu.jlsecurity.security.TokenLogoutHandler;
+import top.jolyoulu.jlsecurity.security.DefaultPasswordEncoderImpl;
+import top.jolyoulu.jlsecurity.security.TokenLogoutHandlerImpl;
+import top.jolyoulu.jlsecurity.service.impl.*;
 import top.jolyoulu.jlsecurity.security.TokenManager;
-import top.jolyoulu.jlsecurity.service.impl.AccessDeniedHandlerImpl;
-import top.jolyoulu.jlsecurity.service.impl.UnAuthEntryPointImpl;
-import top.jolyoulu.jlsecurity.service.impl.UserDetailsServiceImpl;
 import top.jolyoulu.modules.redismodule.utils.RedisUtils;
 
 /**
@@ -41,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     @Autowired
-    private DefaultPasswordEncoder defaultPasswordEncoder;
+    private DefaultPasswordEncoderImpl defaultPasswordEncoderImpl;
 
     /**
      * 过滤器、登录配置
@@ -62,7 +60,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //退出登录的接口，以及退出登录处理器配置
                 .and()
                 .logout().logoutUrl("/security/logout")
-                .addLogoutHandler(new TokenLogoutHandler(tokenManager,redisUtils)).and()
+                .addLogoutHandler(new TokenLogoutHandlerImpl(tokenManager,redisUtils))
+                .logoutSuccessHandler(new TokenLogoutSuccessHandlerImpl())
+                .and()
                 //过滤器：用户密码认证过滤器，处理认证成功/失败后的操作
                 .addFilter(new UsernamePasswordLoginFilter(authenticationManager(),tokenManager,redisUtils))
                 //过滤器：根据token解析权限数据加入到SecurityContextHolder
@@ -86,6 +86,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(defaultPasswordEncoder);
+        auth.userDetailsService(userDetailsService).passwordEncoder(defaultPasswordEncoderImpl);
     }
 }
