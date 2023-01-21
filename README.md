@@ -1,11 +1,17 @@
 # 项目介绍
 > 该项目基础是SpringBoot空框架，框架中实现了很多功能都是基于模块化的方式实现的，如果需要启动指定功能只需在依赖中添加指定模块即可
 
-# 快速上手
+## 快速上手
 
 
 
-# 各模块使用介绍
+## 业务模块介绍
+
+> 业务模块中包含着一些实例程序，可帮助使用者快速找到合适自己的目标进行开发，不需要的模块可以删除掉，最后只需要在`bootstrap模块`的`pom.xml`引入所需要的业务模块即可启动项目
+
+## 集成模块介绍
+
+> 集成模块中包含着一些第三方的基础配置，根据自己创建的业务模块按需引入极了
 
 | 模块名称           | 功能                                                         | 说明                                                         |
 | ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -16,7 +22,7 @@
 | redis-module       | redis模块，已实现redis序列化                                 |                                                              |
 | swagger-module     | swagger，实现swagger的集成                                   |                                                              |
 
-## apiversion-module
+### apiversion-module
 
 > 简介：可编写相同的url的版本控制，多用于移动端开发
 >
@@ -53,7 +59,7 @@ public class TestController {
 >
 > 1. apiversion-module模块中`ApiVersionConfig`类，继承了WebMvcConfigurationSupport会导致SpringBoot自带的MVC配置丢失，若在开启该模块后又需要自定义MVC的东西需要注意
 
-## druid-module
+### druid-module
 
 > 简介：阿里的druid连接池
 >
@@ -85,7 +91,7 @@ public class TestController {
 
 
 
-## logback-module
+### logback-module
 
 > 简介：基于logback的 日志打印，文本文件输出
 >
@@ -115,7 +121,7 @@ logging:
 >
 > 1. error.lowsql.current.log中的慢sql评判标准通过`DruidDataSourceConfig#statFilter`中的`setSlowSqlMillis`设置
 
-## mybatisplus-module
+### mybatisplus-module
 
 > 简介：mybatisplus 
 >
@@ -160,7 +166,7 @@ public class TestController {
 
 
 
-## redis-module
+### redis-module
 
 > 简介：redis
 >
@@ -187,7 +193,7 @@ public class TestController {
 }
 ~~~
 
-## swagger-module
+### swagger-module
 
 > 简介：swagger
 >
