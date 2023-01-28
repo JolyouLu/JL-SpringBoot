@@ -1,5 +1,7 @@
 package top.jolyoulu.common.constant;
 
+import jdk.internal.org.objectweb.asm.commons.StaticInitMerger;
+
 /**
  * @Author: JolyouLu
  * @Date: 2023/1/20 21:34
@@ -23,5 +25,4 @@ public class GlobalConstant {
     public final static Integer HTTP_ERROR_CODE = 500;
     /** http未知连接状态码 */
     public final static Integer HTTP_NOT_FOUND = 404;
-
 }

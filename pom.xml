@@ -38,6 +38,8 @@
         <jl.redis.module.version>0.0.1-SNAPSHOT</jl.redis.module.version>
         <jl.apiversion.module.version>0.0.1-SNAPSHOT</jl.apiversion.module.version>
         <jl.swagger.module.version>0.0.1-SNAPSHOT</jl.swagger.module.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <httpclient.version>4.5.2</httpclient.version>
         <!--其余第三方包-->
         <springboot.version>2.7.7</springboot.version>
         <lombok.version>1.18.24</lombok.version>
@@ -84,6 +86,24 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${httpclient.version}</version>
             </dependency>
 
             <dependency>

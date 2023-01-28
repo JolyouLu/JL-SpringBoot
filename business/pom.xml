@@ -20,6 +20,7 @@
     <modules>
         <module>jl-security</module>
         <module>jl-service</module>
+        <module>jl-wechatpub</module>
     </modules>
 
     <dependencies>

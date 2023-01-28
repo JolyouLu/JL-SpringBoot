@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>top.jolyoulu</groupId>
-        <artifactId>JL-SpringBoot-Template</artifactId>
+        <artifactId>business</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -14,34 +14,42 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <artifactId>bootstrap</artifactId>
+    <artifactId>jl-wechatpub</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>top.jolyoulu</groupId>
-            <artifactId>jl-web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>common</artifactId>
         </dependency>
 
         <dependency>
             <groupId>top.jolyoulu</groupId>
-            <artifactId>jl-wechatpub</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>druid-module</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>logback-module</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>redis-module</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>mybatisplus-module</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>swagger-module</artifactId>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>bootstrap</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${springboot.version}</version>
-                <configuration>
-                    <mainClass>top.jolyoulu.bootstrap.BootstrapApplication</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
+        <finalName>jl-wechatpub</finalName>
     </build>
 </project>
