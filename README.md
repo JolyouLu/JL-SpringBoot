@@ -1,8 +1,44 @@
 # 项目介绍
 > 该项目基础是SpringBoot空框架，框架中实现了很多功能都是基于模块化的方式实现的，如果需要启动指定功能只需在依赖中添加指定模块即可
 
-## 快速上手
+### 项目结构
+> bootstrap：顶层启动模块<br/>
+> business：常见Demo实例<br/>
+> common：工具类、常量<br/>
+> modules：可使用的底层模块<br/>
+~~~text
+├─bootstrap                 
+├─business                  
+│  ├─jl-security            //springSecurity Demo
+│  ├─jl-service             //公共操作数据库service
+│  ├─jl-web                 //自定义业务
+│  └─jl-wechatpub           //微信公众号、小程序 Demo
+├─common                    
+└─modules                   
+    ├─apiversion-module     //接口版本控制模块
+    ├─druid-module          //连接池模块
+    ├─logback-module        //日志保存、打印模块
+    ├─mybatisplus-module    //mybatisplus模块
+    ├─redis-module          //redis模块
+    └─swagger-module        //swagger模块
+~~~
 
+## 快速开始
+> 快速开始以jl-web为模板讲解
+> 
+**1、模块创建**
+> 在business创建你需实现的模块名称
+> 
+**2、依赖引入**
+> 创建相应模块后，根据自己项目的实际情况在pom中引入需要的modules
+> 参考：business/jl-web/pom.xml
+> 
+**3、编写功能**
+> 像往常一样编写相关的业务代码
+> 
+**4、部署准备**
+> 业务编写完毕后，在bootstrap/pom.xml依赖上自己新编写的项目打包即可运行
+> 
 
 ## 业务模块介绍(Demo项目)
 
