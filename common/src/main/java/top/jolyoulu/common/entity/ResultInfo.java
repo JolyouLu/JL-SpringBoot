@@ -1,10 +1,10 @@
 package top.jolyoulu.common.entity;
 
 
+import lombok.Data;
 import top.jolyoulu.common.constant.GlobalConstant;
 import top.jolyoulu.common.enums.GlobalExpType;
 
-import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -12,18 +12,23 @@ import java.util.Objects;
  * @Date: 2023/1/20 21:32
  * @Description 统一返回对象
  */
-public class ResultInfo extends HashMap<String, Object>
-{
-    private static final long serialVersionUID = 1L;
+@Data
+public class ResultInfo<T> {
 
-    /** 状态码 */
-    public static final String CODE_TAG = "code";
+    /**
+     * 状态码
+     */
+    private int code;
 
-    /** 返回内容 */
-    public static final String MSG_TAG = "msg";
+    /**
+     * 返回内容
+     */
+    private String msg;
 
-    /** 数据对象 */
-    public static final String DATA_TAG = "data";
+    /**
+     * 数据对象
+     */
+    private T data;
 
     /**
      * 初始化一个新创建的 ResultInfo 对象，使其表示一个空消息。
@@ -33,116 +38,117 @@ public class ResultInfo extends HashMap<String, Object>
 
     /**
      * 初始化一个新创建的 ResultInfo 对象
-     * 
+     *
      * @param code 状态码
-     * @param msg 返回内容
+     * @param msg  返回内容
      */
     private ResultInfo(int code, String msg) {
-        super.put(CODE_TAG, code);
-        super.put(MSG_TAG, msg);
+        this.code = code;
+        this.msg = msg;
     }
 
     /**
      * 初始化一个新创建的 ResultInfo 对象
-     * 
+     *
      * @param code 状态码
-     * @param msg 返回内容
+     * @param msg  返回内容
      * @param data 数据对象
      */
-    private ResultInfo(int code, String msg, Object data) {
-        super.put(CODE_TAG, code);
-        super.put(MSG_TAG, msg);
+    private ResultInfo(int code, String msg, T data) {
+        this.code = code;
+        this.msg = msg;
         if (!Objects.isNull(data)) {
-            super.put(DATA_TAG, data);
+            this.data = data;
         }
     }
 
     /**
      * 初始化一个新创建的 ResultInfo 对象
+     *
      * @param globalExpType
      */
-    public ResultInfo(GlobalExpType globalExpType){
-        super.put(CODE_TAG, globalExpType.getCode());
-        super.put(MSG_TAG, globalExpType.getMessage());
+    public ResultInfo(GlobalExpType globalExpType) {
+        this.code = globalExpType.getCode();
+        this.msg = globalExpType.getMessage();
     }
 
     /**
      * 返回成功消息
-     * 
+     *
      * @return 成功消息
      */
-    public static ResultInfo success() {
+    public static<T> ResultInfo<T> success() {
         return ResultInfo.success("操作成功");
     }
 
     /**
      * 返回成功数据
-     * 
+     *
      * @return 成功消息
      */
-    public static ResultInfo success(Object data) {
+    public static<T> ResultInfo<T> success(T data) {
         return ResultInfo.success("操作成功", data);
     }
 
     /**
      * 返回成功消息
-     * 
+     *
      * @param msg 返回内容
      * @return 成功消息
      */
-    public static ResultInfo success(String msg) {
+    public static<T> ResultInfo<T> success(String msg) {
         return ResultInfo.success(msg, null);
     }
 
     /**
      * 返回成功消息
-     * 
-     * @param msg 返回内容
+     *
+     * @param msg  返回内容
      * @param data 数据对象
      * @return 成功消息
      */
-    public static ResultInfo success(String msg, Object data) {
-        return new ResultInfo(GlobalConstant.HTTP_SUCCESS_CODE, msg, data);
+    public static<T> ResultInfo<T> success(String msg, T data) {
+        return new ResultInfo<T>(GlobalConstant.HTTP_SUCCESS_CODE, msg, data);
     }
 
     /**
      * 返回错误消息
-     * 
+     *
      * @return
      */
-    public static ResultInfo error() {
+    public static<T> ResultInfo<T> error() {
         return ResultInfo.error("操作失败");
     }
 
     /**
      * 返回错误消息
-     * 
+     *
      * @param msg 返回内容
      * @return 警告消息
      */
-    public static ResultInfo error(String msg) {
+    public static<T> ResultInfo<T> error(String msg) {
         return ResultInfo.error(msg, null);
     }
 
     /**
      * 返回错误消息
-     * 
-     * @param msg 返回内容
+     *
+     * @param msg  返回内容
      * @param data 数据对象
      * @return 警告消息
      */
-    public static ResultInfo error(String msg, Object data) {
-        return new ResultInfo(GlobalConstant.HTTP_ERROR_CODE, msg, data);
+    public static<T> ResultInfo<T> error(String msg, T data) {
+        return new ResultInfo<T>(GlobalConstant.HTTP_ERROR_CODE, msg, data);
     }
 
     /**
      * 返回错误消息
-     * 
+     *
      * @param code 状态码
-     * @param msg 返回内容
+     * @param msg  返回内容
      * @return 警告消息
      */
-    public static ResultInfo error(int code, String msg) {
-        return new ResultInfo(code, msg, null);
+    public static<T> ResultInfo<T> error(int code, String msg) {
+        return new ResultInfo<T>(code, msg, null);
     }
 }
