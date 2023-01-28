@@ -4,16 +4,154 @@
 ## 快速上手
 
 
-## 业务模块介绍
+## 业务模块介绍(Demo项目)
 
 > 业务模块中包含着一些实例程序，可帮助使用者快速找到合适自己的目标进行开发，不需要的模块可以删除掉，最后只需要在`bootstrap模块`的`pom.xml`引入所需要的业务模块即可启动项目
 
-| 模块名称        | 功能                                | 说明                                                         |
-|-------------|-----------------------------------| ------------------------------------------------------------ |
-| jl-service  | 存放公共的model、service、dao            |                                                          |
-| jl-security | 依赖jl-service，实现了springSecurity的模板 |                                                            |
-| jl-web      | 依赖modules所有，用于测试集成模块中的功能          |                                                            |
+| 模块名称         | 功能                                | 说明                                                         |
+|--------------|-----------------------------------| ------------------------------------------------------------ |
+| jl-service   | 存放公共的model、service、dao            |                                                          |
+| jl-security  | 依赖jl-service，实现了springSecurity的模板 |                                                            |
+| jl-web       | 依赖modules所有，用于测试集成模块中的功能          |                                                            |
+| jl-wechatpub | 依赖modules部分模块，实现微信公众号、小程序后台       |                                                            |
 
+### jl-service
+> 简介：需要操作数据库的业务模块都会基础该模块
+>
+> 作用：公共的service，方便多个模块可以调用相同的service
+
+
+### jl-security
+> 简介：一个集成了spring-security的业务模板
+>
+> 作用：在该业务上可以进行有关权限、登录的业务二次开发
+
+#### 项目结构
+
+~~~txt
+└─top
+    └─jolyoulu
+        └─jlsecurity
+            ├─config        //spring-security核心配置
+            ├─controller    //里面包含一个测试权限工具类
+            ├─entity        //实体类
+            │  ├─bo
+            │  ├─po
+            │  └─vo
+            ├─expression    //基于注解方式的权限认证实现
+            ├─filter        //用户名密码登录过滤器，通过token获取权限过滤器
+            ├─security      //密码加密处理器、退出登录处理器、token处理器、UserDetailsService实现
+            └─service       //权限不足回调、退出登录成功回调、认证失败回调
+                └─impl
+~~~
+#### 快速开始
+
+**1、初始化表结构**
+
+> 因为jl-security依赖jl-service模块，进行数据库操作，所以需要初始化表
+> 初始化sql位置：business/jl-service/src/main/resources/mapper/sql/jlsecurity.sql
+**2、修改bootstrap模块依赖pom.xml文件**
+
+> 将jl-security依赖注释去除
+~~~xml
+<dependency>
+    <groupId>top.jolyoulu</groupId>
+    <artifactId>jl-security</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+~~~
+**3、测试security**
+
+> jl-security的测试controller位于 top.jolyoulu.jlsecurity.controller.SecurityTestController
+~~~http request
+#登录
+POST /security/login HTTP/1.1
+Host: localhost:8080
+api-version: 1.0.0
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"123456"
+}
+
+#权限测试
+GET /security/test HTTP/1.1
+Host: localhost:8080
+token: eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InRlc3QifQ.bKbo1_2gQDxhaXN-BZJ4rPASyDuqYeZOl_2C3wsfafGm029OV5ky7z6G-Il7a6ZRH3z2Z6M0NEUskdbB1l2jFw
+
+#退出登录
+GET /security/logout HTTP/1.1
+Host: localhost:8080
+token: eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InRlc3QifQ.bKbo1_2gQDxhaXN-BZJ4rPASyDuqYeZOl_2C3wsfafGm029OV5ky7z6G-Il7a6ZRH3z2Z6M0NEUskdbB1l2jFw
+~~~
+
+
+### jl-web
+
+> 简介：依赖modules所有模块
+>
+> 作用：里面有好多测试的controller，用于测试modules中的模板兼容性以及功能是否正常
+
+
+### jl-wechatpub
+
+> 简介：一个适应与小程序、微信公众号的业务模板
+
+#### 项目结构
+
+~~~txt
+└─top
+    └─jolyoulu
+        └─jlwechatpub
+            ├─aspects               //处理微信消息重排拦截器，里面有2种解决方案
+            ├─config                //微信appId、appSecret等参数读取配置类
+            ├─controller            //微信公众号token、用户消息接收controller
+            ├─entity                //实体类
+            │  ├─bo
+            │  ├─po
+            │  └─vo
+            ├─msghandler            //微信公众号用户消息接收处理类型
+            ├─sechedules            //定期获取accesstoken
+            ├─service       
+            │  └─impl
+            └─wechatpub             //wechatpub配置
+                ├─enums             
+                ├─passivemsg        //公众号被动消息回复封装，使用案例在TextTypeHandle
+                │  ├─annotation
+                │  └─entity
+                │      ├─articles
+                │      ├─image
+                │      ├─music
+                │      ├─text
+                │      ├─video
+                │      └─voice
+                ├─pipline           //公众号消息处理pipline封装
+                └─utils             //公众号相关工具类
+~~~
+
+#### 快速开始
+
+**1、vx.yml配置**
+
+> 应用在启动需要获取vx.yml中的token(只有公众号需要)、appId、appSecret来访问服务器获取accesstoken，所有在启动项目时请根据实际情况到business/jl-wechatpub/src/main/resources/vx.yml修改配置
+
+**2、修改bootstrap模块依赖pom.xml文件**
+> 将jl-wechatpub依赖注释去除
+~~~xml
+<dependency>
+    <groupId>top.jolyoulu</groupId>
+    <artifactId>jl-wechatpub</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+~~~
+**3、启动项目**
+> 启动项目后，通过观察日志中若打印“微信accessToken保存成功“表示成功
+
+#### 微信公众平台服务器配置
+> 微信公众平台服务器配置需要注意的几个点
+> 1. URL：你的服务器域名/myWeXin/master
+> 2. Token：与vx.yml文件中的token一致
 
 ## 集成模块介绍
 
