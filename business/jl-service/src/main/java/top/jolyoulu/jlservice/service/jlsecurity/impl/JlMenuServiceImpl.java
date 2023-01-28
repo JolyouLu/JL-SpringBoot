@@ -1,4 +1,4 @@
-package top.jolyoulu.jlservice.service.impl;
+package top.jolyoulu.jlservice.service.jlsecurity.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.jolyoulu.jlservice.dao.JlMenuMapper;
 import top.jolyoulu.jlservice.entity.po.JlMenu;
-import top.jolyoulu.jlservice.service.JlMenuService;
+import top.jolyoulu.jlservice.service.jlsecurity.JlMenuService;
 
 import java.util.Set;
 

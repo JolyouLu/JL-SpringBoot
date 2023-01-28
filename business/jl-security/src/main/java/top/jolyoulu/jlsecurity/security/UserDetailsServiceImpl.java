@@ -10,10 +10,9 @@ import top.jolyoulu.common.enums.GlobalExpType;
 import top.jolyoulu.common.exception.GlobalException;
 import top.jolyoulu.jlsecurity.entity.bo.SecurityUser;
 import top.jolyoulu.jlservice.entity.po.JlUser;
-import top.jolyoulu.jlservice.service.JlMenuService;
-import top.jolyoulu.jlservice.service.JlUserService;
+import top.jolyoulu.jlservice.service.jlsecurity.JlMenuService;
+import top.jolyoulu.jlservice.service.jlsecurity.JlUserService;
 
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 

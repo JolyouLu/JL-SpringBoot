@@ -1,11 +1,11 @@
-package top.jolyoulu.jlservice.service.impl;
+package top.jolyoulu.jlservice.service.jlsecurity.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.jolyoulu.jlservice.dao.JlRoleMenuMapper;
 import top.jolyoulu.jlservice.entity.po.JlRoleMenu;
-import top.jolyoulu.jlservice.service.JlRoleMenuService;
+import top.jolyoulu.jlservice.service.jlsecurity.JlRoleMenuService;
 
 /**
  * @Author: JolyouLu

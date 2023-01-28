@@ -1,4 +1,4 @@
-package top.jolyoulu.jlservice.service;
+package top.jolyoulu.jlservice.service.jlsecurity;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import top.jolyoulu.jlservice.entity.po.JlRoleMenu;

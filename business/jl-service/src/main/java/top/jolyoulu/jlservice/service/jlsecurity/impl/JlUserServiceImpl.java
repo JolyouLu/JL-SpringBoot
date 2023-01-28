@@ -1,4 +1,4 @@
-package top.jolyoulu.jlservice.service.impl;
+package top.jolyoulu.jlservice.service.jlsecurity.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.jolyoulu.jlservice.dao.JlUserMapper;
 import top.jolyoulu.jlservice.entity.po.JlUser;
-import top.jolyoulu.jlservice.service.JlUserService;
+import top.jolyoulu.jlservice.service.jlsecurity.JlUserService;
 
 /**
  * @Author: JolyouLu
