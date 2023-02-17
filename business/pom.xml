@@ -21,6 +21,8 @@
         <module>jl-security</module>
         <module>jl-service</module>
         <module>jl-wechatpub</module>
+        <module>jl-web</module>
+        <module>jl-netty</module>
     </modules>
 
     <dependencies>

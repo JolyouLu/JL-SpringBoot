@@ -1,6 +1,5 @@
 package top.jolyoulu.common.constant;
 
-import jdk.internal.org.objectweb.asm.commons.StaticInitMerger;
 
 /**
  * @Author: JolyouLu

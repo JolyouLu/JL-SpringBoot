@@ -1,0 +1,30 @@
+syntax = "proto3";//协议版本
+option optimize_for = SPEED;//加快解析
+option java_package = "top.jolyoulu.jlnetty.entity.proto";//生成到那个包下
+option java_outer_classname = "DataInfo";//生成的外部类名，就是生成的文件名
+//protobuf 使用message 管理多个使用message
+message Message{
+  //定义一个枚举类型
+  enum DataType{
+    //proto3 要求enum编号必须0开始
+    RequestType = 0;
+    ResponseType = 1;
+  }
+  //用data_type关联的是enum DataType 来标识传入的是哪一个 枚举类型
+  DataType data_type = 1;
+  //表示在Message 出现Request/Response其中一个类型，节省空间
+  oneof dataBody {
+    Request request = 2;
+    Response response = 3;
+  }
+}
+message Request{
+  //定义属性
+  int32 code = 1;
+  string data = 2;
+}
+message Response{
+  //定义属性
+  int32 code = 1;
+  string data = 2;
+}
