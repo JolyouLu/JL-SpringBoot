@@ -9,6 +9,7 @@
 ~~~text
 ├─bootstrap                 
 ├─business                  
+│  ├─jl-netty               //netty Demo
 │  ├─jl-security            //springSecurity Demo
 │  ├─jl-service             //公共操作数据库service
 │  ├─jl-web                 //自定义业务
@@ -46,16 +47,81 @@
 
 | 模块名称         | 功能                                | 说明                                                         |
 |--------------|-----------------------------------| ------------------------------------------------------------ |
-| jl-service   | 存放公共的model、service、dao            |                                                          |
+| jl-netty  | 实现了tcp/ip长连接 |                                                            |
 | jl-security  | 依赖jl-service，实现了springSecurity的模板 |                                                            |
+| jl-service   | 存放公共的model、service、dao            |                                                          |
 | jl-web       | 依赖modules所有，用于测试集成模块中的功能          |                                                            |
 | jl-wechatpub | 依赖modules部分模块，实现微信公众号、小程序后台       |                                                            |
 
-### jl-service
-> 简介：需要操作数据库的业务模块都会基础该模块
+### jl-netty
+> 简介：一个netty通用模板
 >
-> 作用：公共的service，方便多个模块可以调用相同的service
+> 作用：包含 自定义协议、WebSocket、ProtoBuf 实例
 
+#### 项目结构
+
+~~~txt
+└─top
+    └─jolyoulu
+        └─jlnetty
+            ├─config        //Channel配置、Netty配置        
+            ├─entity        
+            │  ├─po
+            │  └─proto      //ProtoBuf对象存储地方
+            ├─handler       //Netty消息处理类
+            ├─protocols     //自定义协议
+            │  ├─decoder    //等一下协议解析器，
+            │  └─encoder
+            ├─server        //Netty服务的实现
+            └─utils         //Netty相关工具类
+~~~
+
+#### 快速开始
+
+**1、修改bootstrap模块依赖pom.xml文件**
+
+> 将jl-security依赖注释去除
+~~~xml
+<dependency>
+    <groupId>top.jolyoulu</groupId>
+    <artifactId>jl-netty</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+~~~
+
+**2、选择典型的netty服务端类型**
+
+> 配置位置：top.jolyoulu.jlnetty.config.StartNettyServer
+>
+> 本demo中提供了3种典型的netty服务端案例分别是：基于自定义协议的、基于ProtoBuf的、基于WebSocket的，可以通过去除注释方式先体验一下默认的实现
+
+| 典型实例        | 说明             | 对应测试客户端                                               |
+| --------------- | ---------------- | ------------------------------------------------------------ |
+| MyProtoServer   | 自定义协议服务端 | src/test/java/top/jolyoulu/jlnetty/client/myprotoserver/Client.java |
+| ProtoBufServer  | ProtoBuf服务端   | src/test/java/top/jolyoulu/jlnetty/client/protobufserver/Client.java |
+| WebSocketServer | WebSocket服务端  | src/test/java/top/jolyoulu/jlnetty/client/websockerserver/hello.html |
+
+#### 自定义协议解码器
+
+> 在`top.jolyoulu.jlnetty.protocols.decoder`包下提供了3种常见的自定义协议解码器
+>
+> MyProtoServer种使用的就是一下3种自定义解码器的其中一种，可根据自己情况进行修改
+
+| 解码器            | 说明                           |
+| ----------------- | ------------------------------ |
+| DelimiterDecode   | 根据分隔符拆分数据             |
+| FixedLengthDecode | 根据长度拆分数据               |
+| SubByteBufDecode  | 根据协议头，协议尾标识拆分数据 |
+
+#### ProtoBuf生成插件
+
+> 本项目使用的是proto3已经集成了基于maven的ProtoBuf生成插件
+>
+> proto3文件编写文档：[Language Guide (proto 3) | Protocol Buffers Documentation (protobuf.dev)](https://protobuf.dev/programming-guides/proto3/#simple)
+>
+> 编写位置：所有的`.proto`文件都编写在resource/source下
+>
+> java类生成位置：当执行jl-netty的compile命令后会在resource/target下生成java文件
 
 ### jl-security
 > 简介：一个集成了spring-security的业务模板
@@ -86,6 +152,7 @@
 
 > 因为jl-security依赖jl-service模块，进行数据库操作，所以需要初始化表
 > 初始化sql位置：business/jl-service/src/main/resources/mapper/sql/jlsecurity.sql
+
 **2、修改bootstrap模块依赖pom.xml文件**
 
 > 将jl-security依赖注释去除
@@ -122,6 +189,11 @@ Host: localhost:8080
 token: eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InRlc3QifQ.bKbo1_2gQDxhaXN-BZJ4rPASyDuqYeZOl_2C3wsfafGm029OV5ky7z6G-Il7a6ZRH3z2Z6M0NEUskdbB1l2jFw
 ~~~
 
+
+### jl-service
+> 简介：需要操作数据库的业务模块都会基础该模块
+>
+> 作用：公共的service，方便多个模块可以调用相同的service
 
 ### jl-web
 
