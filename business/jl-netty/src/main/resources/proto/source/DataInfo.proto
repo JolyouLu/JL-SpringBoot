@@ -1,6 +1,5 @@
 syntax = "proto3";//协议版本
 option optimize_for = SPEED;//加快解析
-option java_package = "top.jolyoulu.jlnetty.entity.proto";//生成到那个包下
 option java_outer_classname = "DataInfo";//生成的外部类名，就是生成的文件名
 //protobuf 使用message 管理多个使用message
 message Message{
