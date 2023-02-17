@@ -1,4 +1,4 @@
-package top.jolyoulu.jlnetty.client.defserver;
+package top.jolyoulu.jlnetty.client.myprotoserver;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.*;
@@ -9,7 +9,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 

@@ -24,14 +24,8 @@ public class DelimiterDecode extends ChannelInboundHandlerAdapter {
      */
     private final byte delimiter;
 
-    public DelimiterDecode(ByteBuf delimiter) {
-        if (delimiter == null) {
-            throw new NullPointerException("delimiter");
-        }
-        if (!delimiter.isReadable()) {
-            throw new IllegalArgumentException("empty delimiter");
-        }
-        this.delimiter = delimiter.readByte();
+    public DelimiterDecode(byte delimiter) {
+        this.delimiter = delimiter;
     }
 
     /**

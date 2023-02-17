@@ -16,13 +16,13 @@ import io.netty.handler.logging.LoggingHandler;
  * @Date 2023/2/17
  * 一个自定义协议的NettyServer
  */
-public class DefServer extends AbstractNettyServer{
+public class MyProtoServer extends AbstractNettyServer{
 
     private final ChannelInitializer<SocketChannel> channel;
     private final EventLoopGroup boss = new NioEventLoopGroup();
     private final EventLoopGroup worker = new NioEventLoopGroup();
 
-    public DefServer(int port, ChannelInitializer<SocketChannel> channel) {
+    public MyProtoServer(int port, ChannelInitializer<SocketChannel> channel) {
         super.setPort(port);
         this.channel = channel;
     }
