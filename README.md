@@ -13,6 +13,7 @@
 │  ├─jl-security            //springSecurity Demo
 │  ├─jl-service             //公共操作数据库service
 │  ├─jl-web                 //自定义业务
+│  ├─jl-webVue              //SpringBoot+Vue合并部署 Demo
 │  └─jl-wechatpub           //微信公众号、小程序 Demo
 ├─common                    
 └─modules                   
@@ -51,6 +52,7 @@
 | jl-security  | 依赖jl-service，实现了springSecurity的模板 |                                                            |
 | jl-service   | 存放公共的model、service、dao            |                                                          |
 | jl-web       | 依赖modules所有，用于测试集成模块中的功能          |                                                            |
+| jl-webVue       | SpringBoot+Vue合并部署 Demo          |                                                            |
 | jl-wechatpub | 依赖modules部分模块，实现微信公众号、小程序后台       |                                                            |
 
 ### jl-netty
@@ -201,6 +203,48 @@ token: eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InRlc3QifQ.bKbo1_2gQDxha
 >
 > 作用：里面有好多测试的controller，用于测试modules中的模板兼容性以及功能是否正常
 
+### jl-webVue
+
+> 简介：将Vue包，放入到Springboot资源目录下合并部署
+>
+> 作用：适合前期小型团队开发，一个jar前后端一起部署，由于前端与后端本质上是分离的当项目越来越大后也可以拆分成为完整的前后端项目
+
+#### 项目结构
+
+~~~txt
+─main
+   ├─java
+   │  └─top
+   │      └─jolyoulu
+   │          └─jlwebvue
+   │              ├─config     //处理静态资源的配置类
+   │              └─controller //测试controller
+   └─resources
+      ├─static //静态资源存储的位置
+      └─vue    //vue3.x项目
+~~~
+
+#### 快速开始
+
+**1、修改bootstrap模块依赖pom.xml文件**
+
+> 将jl-webVue依赖注释去除
+
+~~~xml
+<dependency>
+    <groupId>top.jolyoulu</groupId>
+    <artifactId>jl-webVue</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+~~~
+
+**2、vue自动打包**
+
+> jl-webVue项目的pom文件build中添加了自动打包，当执行maven的package时会自动对`/resources/vue`文件夹中的vue项目进行打包，并且拷贝到`/resources/static`中
+
+**3、启动项目**
+
+> 启动项目后访问localhost:8080即可跳转到前端首页
 
 ### jl-wechatpub
 
@@ -254,6 +298,7 @@ token: eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InRlc3QifQ.bKbo1_2gQDxha
 </dependency>
 ~~~
 **3、启动项目**
+
 > 启动项目后，通过观察日志中若打印“微信accessToken保存成功“表示成功
 
 #### 微信公众平台服务器配置
