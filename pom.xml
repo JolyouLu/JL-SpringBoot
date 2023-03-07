@@ -11,11 +11,11 @@
     </parent>
 
     <groupId>top.jolyoulu</groupId>
-    <artifactId>JL-SpringBoot-Template</artifactId>
+    <artifactId>JL-SpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>JL-SpringBoot-Template</name>
-    <description>JL-SpringBoot-Template</description>
+    <name>JL-SpringBoot</name>
+    <description>JL-SpringBoot</description>
 
     <modules>
         <module>common</module>

@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>top.jolyoulu</groupId>
-        <artifactId>JL-SpringBoot-Template</artifactId>
+        <artifactId>JL-SpringBoot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 

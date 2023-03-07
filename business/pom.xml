@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>top.jolyoulu</groupId>
-        <artifactId>JL-SpringBoot-Template</artifactId>
+        <artifactId>JL-SpringBoot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -30,6 +30,13 @@
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.7.1</version>
+            </extension>
+        </extensions>
         <finalName>business</finalName>
     </build>
 </project>
