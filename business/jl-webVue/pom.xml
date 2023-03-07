@@ -36,5 +36,57 @@
 
     <build>
         <finalName>jl-webVue</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>exec-npm-run-build</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <!--程序名称-->
+                            <executable>npm</executable>
+                            <arguments>
+                                <!-- 程序所执行的命令-->
+                                <argument>run</argument>
+                                <argument>build</argument>
+                            </arguments>
+                            <!--${basedir}项目根目录-->
+                            <!--前端代码地址-->
+                            <workingDirectory>${basedir}/src/main/resources/vue</workingDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!--maven-resources-plugin：maven复制文件插件-->
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resource</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <!--输出文件路径-->
+                            <outputDirectory>${basedir}\src\main\resources\static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <!--前端代码地址-->
+                                    <directory>${basedir}\src\main\resources\vue\dist</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
