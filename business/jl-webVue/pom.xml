@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>top.jolyoulu</groupId>
-        <artifactId>JL-SpringBoot</artifactId>
+        <artifactId>business</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -14,30 +14,27 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <artifactId>business</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>jl-security</module>
-        <module>jl-service</module>
-        <module>jl-wechatpub</module>
-        <module>jl-web</module>
-        <module>jl-netty</module>
-        <module>jl-webVue</module>
-    </modules>
+    <artifactId>jl-webVue</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>mybatisplus-module</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>logback-module</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>1.7.1</version>
-            </extension>
-        </extensions>
-        <finalName>business</finalName>
+        <finalName>jl-webVue</finalName>
     </build>
 </project>

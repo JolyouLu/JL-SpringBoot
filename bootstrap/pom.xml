@@ -40,9 +40,16 @@
 <!--        </dependency>-->
 
         <!--jl-netty Demo-->
+<!--        <dependency>-->
+<!--            <groupId>top.jolyoulu</groupId>-->
+<!--            <artifactId>jl-netty</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+        <!--jl-webVue Demo-->
         <dependency>
             <groupId>top.jolyoulu</groupId>
-            <artifactId>jl-netty</artifactId>
+            <artifactId>jl-webVue</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
