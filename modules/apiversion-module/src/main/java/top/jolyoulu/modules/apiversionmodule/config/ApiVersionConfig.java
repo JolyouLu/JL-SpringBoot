@@ -1,8 +1,11 @@
 package top.jolyoulu.modules.apiversionmodule.config;
 
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import top.jolyoulu.modules.apiversionmodule.apiverion.ApiHandlerMapping;
 
@@ -13,7 +16,7 @@ import top.jolyoulu.modules.apiversionmodule.apiverion.ApiHandlerMapping;
  * @Description
  */
 @Configuration
-public class ApiVersionConfig extends WebMvcConfigurationSupport {
+public class ApiVersionConfig extends DelegatingWebMvcConfiguration {
 
     @Override
     protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {

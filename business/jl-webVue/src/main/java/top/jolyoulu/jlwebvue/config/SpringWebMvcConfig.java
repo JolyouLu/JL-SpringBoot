@@ -15,15 +15,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class SpringWebMvcConfig implements WebMvcConfigurer {
 
-    //指定静态资源路径
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-        WebMvcConfigurer.super.addResourceHandlers(registry);
-    }
-
     @Bean
-    public FilterRegistrationBean testFilterRegistration() {
+    public FilterRegistrationBean uiFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new RewriteFilter());//注册rewrite过滤器
         registration.addUrlPatterns("/*");
@@ -32,5 +25,12 @@ public class SpringWebMvcConfig implements WebMvcConfigurer {
         registration.setName("rewriteFilter");
         registration.setOrder(1);
         return registration;
+    }
+
+    //指定静态资源路径
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 }
