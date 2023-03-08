@@ -1,11 +1,11 @@
-package top.jolyoulu.common.exception;
+package top.jolyoulu.webcommon.excption;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import top.jolyoulu.common.constant.GlobalConstant;
-import top.jolyoulu.common.entity.ResultInfo;
+import top.jolyoulu.corecommon.constant.GlobalConstant;
+import top.jolyoulu.webcommon.entity.ResultInfo;
 
 
 import javax.servlet.http.HttpServletRequest;

@@ -29,8 +29,10 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <!--项目common-->
+        <jl.web.common.version>0.0.1-SNAPSHOT</jl.web.common.version>
+        <jl.core.common.version>0.0.1-SNAPSHOT</jl.core.common.version>
         <!--项目提供的可选模块-->
-        <jl.common.version>0.0.1-SNAPSHOT</jl.common.version>
         <jl.druid.module.version>0.0.1-SNAPSHOT</jl.druid.module.version>
         <jl.logback.module.version>0.0.1-SNAPSHOT</jl.logback.module.version>
         <jl.mybatisplus.module.version>0.0.1-SNAPSHOT</jl.mybatisplus.module.version>
@@ -135,8 +137,14 @@
 
             <dependency>
                 <groupId>top.jolyoulu</groupId>
-                <artifactId>common</artifactId>
-                <version>${jl.common.version}</version>
+                <artifactId>web-common</artifactId>
+                <version>${jl.web.common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.jolyoulu</groupId>
+                <artifactId>core-common</artifactId>
+                <version>${jl.core.common.version}</version>
             </dependency>
 
             <dependency>

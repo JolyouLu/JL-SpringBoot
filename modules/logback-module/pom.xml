@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>top.jolyoulu</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>web-common</artifactId>
         </dependency>
 
         <dependency>
@@ -40,7 +40,7 @@
 
         <dependency>
             <groupId>top.jolyoulu</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>web-common</artifactId>
         </dependency>
 
         <dependency>

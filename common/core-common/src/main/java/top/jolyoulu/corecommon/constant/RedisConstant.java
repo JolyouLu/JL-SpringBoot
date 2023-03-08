@@ -1,4 +1,4 @@
-package top.jolyoulu.common.constant;
+package top.jolyoulu.corecommon.constant;
 
 /**
  * @Author: JolyouLu

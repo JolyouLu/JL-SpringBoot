@@ -1,4 +1,4 @@
-package top.jolyoulu.common.utils;
+package top.jolyoulu.corecommon.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

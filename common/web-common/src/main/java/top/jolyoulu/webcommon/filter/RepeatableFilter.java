@@ -1,4 +1,4 @@
-package top.jolyoulu.common.filter;
+package top.jolyoulu.webcommon.filter;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.MediaType;

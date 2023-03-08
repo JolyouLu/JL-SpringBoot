@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>top.jolyoulu</groupId>
-        <artifactId>business</artifactId>
+        <artifactId>JL-SpringBoot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -14,47 +14,42 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <artifactId>jl-web</artifactId>
+    <artifactId>web-common</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>top.jolyoulu</groupId>
-            <artifactId>web-common</artifactId>
+            <artifactId>core-common</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>druid-module</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>logback-module</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>redis-module</artifactId>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>apiversion-module</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>mybatisplus-module</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>swagger-module</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>jl-web</finalName>
+        <finalName>web-common</finalName>
     </build>
 </project>

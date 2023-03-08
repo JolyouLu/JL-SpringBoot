@@ -1,9 +1,9 @@
-package top.jolyoulu.common.entity;
+package top.jolyoulu.webcommon.entity;
 
 
 import lombok.Data;
-import top.jolyoulu.common.constant.GlobalConstant;
-import top.jolyoulu.common.enums.GlobalExpType;
+import top.jolyoulu.corecommon.constant.GlobalConstant;
+import top.jolyoulu.webcommon.enums.GlobalExpType;
 
 import java.util.Objects;
 
