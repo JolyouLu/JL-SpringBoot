@@ -15,7 +15,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>JL-SpringBoot</name>
-    <description>JL-SpringBoot 123</description>
+    <description>JL-SpringBoot</description>
 
     <modules>
         <module>common</module>
