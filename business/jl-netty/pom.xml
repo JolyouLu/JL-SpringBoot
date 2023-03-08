@@ -57,6 +57,7 @@
     </dependencies>
 
     <build>
+        <finalName>jl-netty</finalName>
         <plugins>
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
