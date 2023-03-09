@@ -46,6 +46,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
         // 解决swagger的js文件无法访问
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+        WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
     /**
