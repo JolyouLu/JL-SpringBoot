@@ -26,19 +26,34 @@ import java.util.List;
  * @Date: 2023/1/20 19:00
  * @Description
  */
-@EnableWebMvc
 @EnableOpenApi
 @Configuration
 //Profile是方法1（只在dev和test环境下开启）
-@Profile({"dev","test"})
+@Profile({"dev", "test"})
 public class SwaggerConfig implements WebMvcConfigurer {
+
+    /**
+     * 设置静态资源路径的映射
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 解决静态资源无法访问
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/static/");
+        // 解决swagger无法访问
+        registry.addResourceHandler("/swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        // 解决swagger的js文件无法访问
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
 
     /**
      * apiInfo() 增加API相关信息
      * 所有的注解
      * .apis(RequestHandlerSelectors.any())
      * 指定部分注解1.Api.class(@APi),2.ApiOperation.class(@ApiOperation),3.ApiImplicitParam.class(@ApiImplicitParam)
-     *.apis(RequestHandlerSelectors.withMethodAnnotation(Api.class))
+     * .apis(RequestHandlerSelectors.withMethodAnnotation(Api.class))
      * 指定包路径
      * .apis(RequestHandlerSelectors.basePackage("这里填写需要的路径"))
      * .paths() 这个是包路径下的路径,PathSelectors.any()是包下所有路径
