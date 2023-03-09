@@ -19,11 +19,11 @@
 
     <dependencies>
         <!--jl-web Demo(测试用)-->
-<!--        <dependency>-->
-<!--            <groupId>top.jolyoulu</groupId>-->
-<!--            <artifactId>jl-web</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>jl-web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
         <!--jl-security Demo-->
 <!--        <dependency>-->
@@ -47,11 +47,11 @@
 <!--        </dependency>-->
 
         <!--jl-webVue Demo-->
-        <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>jl-webVue</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>top.jolyoulu</groupId>-->
+<!--            <artifactId>jl-webVue</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
