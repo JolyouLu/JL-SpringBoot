@@ -2,9 +2,10 @@ package top.jolyoulu.jlsecurity.service.impl;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import top.jolyoulu.common.entity.ResultInfo;
-import top.jolyoulu.common.enums.GlobalExpType;
-import top.jolyoulu.common.utils.ResponseUtils;
+import top.jolyoulu.webcommon.entity.ResultInfo;
+import top.jolyoulu.webcommon.enums.GlobalExpType;
+import top.jolyoulu.webcommon.utils.ResponseUtils;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

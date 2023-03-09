@@ -2,8 +2,8 @@ package top.jolyoulu.jlsecurity.security;
 
 import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Component;
-import top.jolyoulu.common.constant.GlobalConstant;
-import top.jolyoulu.common.utils.JwtUtils;
+import top.jolyoulu.corecommon.constant.GlobalConstant;
+import top.jolyoulu.corecommon.utils.JwtUtils;
 import top.jolyoulu.jlservice.entity.po.JlUser;
 
 import java.util.HashMap;

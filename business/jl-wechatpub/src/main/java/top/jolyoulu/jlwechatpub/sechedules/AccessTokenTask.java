@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import top.jolyoulu.common.constant.RedisConstant;
+import top.jolyoulu.corecommon.constant.RedisConstant;
 import top.jolyoulu.jlwechatpub.entity.bo.AccessToken;
 import top.jolyoulu.jlwechatpub.service.AccessTokenService;
 import top.jolyoulu.modules.redismodule.utils.RedisUtils;

@@ -6,12 +6,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import top.jolyoulu.common.enums.GlobalExpType;
-import top.jolyoulu.common.exception.GlobalException;
 import top.jolyoulu.jlsecurity.entity.bo.SecurityUser;
 import top.jolyoulu.jlservice.entity.po.JlUser;
 import top.jolyoulu.jlservice.service.jlsecurity.JlMenuService;
 import top.jolyoulu.jlservice.service.jlsecurity.JlUserService;
+import top.jolyoulu.webcommon.enums.GlobalExpType;
+import top.jolyoulu.webcommon.excption.GlobalException;
 
 import java.util.Objects;
 import java.util.Set;

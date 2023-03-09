@@ -3,9 +3,10 @@ package top.jolyoulu.jlsecurity.service.impl;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
-import top.jolyoulu.common.entity.ResultInfo;
-import top.jolyoulu.common.enums.GlobalExpType;
-import top.jolyoulu.common.utils.ResponseUtils;
+import top.jolyoulu.webcommon.entity.ResultInfo;
+import top.jolyoulu.webcommon.enums.GlobalExpType;
+import top.jolyoulu.webcommon.utils.ResponseUtils;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

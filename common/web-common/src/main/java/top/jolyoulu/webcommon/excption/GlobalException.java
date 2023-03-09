@@ -1,6 +1,7 @@
-package top.jolyoulu.common.exception;
+package top.jolyoulu.webcommon.excption;
 
-import top.jolyoulu.common.enums.GlobalExpType;
+
+import top.jolyoulu.webcommon.enums.GlobalExpType;
 
 /**
  * @Author: JolyouLu

@@ -1,10 +1,10 @@
-package top.jolyoulu.common.exception;
+package top.jolyoulu.webcommon.excption;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.jolyoulu.common.enums.GlobalExpType;
-import top.jolyoulu.common.entity.ResultInfo;
+import top.jolyoulu.webcommon.entity.ResultInfo;
+import top.jolyoulu.webcommon.enums.GlobalExpType;
 
 
 /**

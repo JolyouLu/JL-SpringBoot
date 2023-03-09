@@ -1,8 +1,8 @@
-package top.jolyoulu.common.filter;
+package top.jolyoulu.webcommon.filter;
 
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import top.jolyoulu.common.constant.GlobalConstant;
+
+import top.jolyoulu.corecommon.constant.GlobalConstant;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;

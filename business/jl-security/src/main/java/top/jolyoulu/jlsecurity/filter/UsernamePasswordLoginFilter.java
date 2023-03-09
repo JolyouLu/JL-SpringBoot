@@ -7,15 +7,16 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import top.jolyoulu.common.constant.GlobalConstant;
-import top.jolyoulu.common.constant.RedisConstant;
-import top.jolyoulu.common.entity.ResultInfo;
-import top.jolyoulu.common.enums.GlobalExpType;
-import top.jolyoulu.common.utils.ResponseUtils;
+
+import top.jolyoulu.corecommon.constant.GlobalConstant;
+import top.jolyoulu.corecommon.constant.RedisConstant;
 import top.jolyoulu.jlsecurity.entity.bo.SecurityUser;
 import top.jolyoulu.jlsecurity.security.TokenManager;
 import top.jolyoulu.jlservice.entity.po.JlUser;
 import top.jolyoulu.modules.redismodule.utils.RedisUtils;
+import top.jolyoulu.webcommon.entity.ResultInfo;
+import top.jolyoulu.webcommon.enums.GlobalExpType;
+import top.jolyoulu.webcommon.utils.ResponseUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

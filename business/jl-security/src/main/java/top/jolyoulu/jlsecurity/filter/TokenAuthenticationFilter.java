@@ -7,8 +7,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import top.jolyoulu.common.constant.GlobalConstant;
-import top.jolyoulu.common.constant.RedisConstant;
+
+import top.jolyoulu.corecommon.constant.GlobalConstant;
+import top.jolyoulu.corecommon.constant.RedisConstant;
 import top.jolyoulu.jlsecurity.security.TokenManager;
 import top.jolyoulu.modules.redismodule.utils.RedisUtils;
 

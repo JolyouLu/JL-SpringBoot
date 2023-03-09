@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>top.jolyoulu</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>web-common</artifactId>
         </dependency>
 
         <dependency>
@@ -46,6 +46,16 @@
         <dependency>
             <groupId>top.jolyoulu</groupId>
             <artifactId>swagger-module</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
         </dependency>
     </dependencies>
 

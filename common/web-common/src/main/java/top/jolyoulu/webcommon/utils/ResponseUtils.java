@@ -1,8 +1,8 @@
-package top.jolyoulu.common.utils;
+package top.jolyoulu.webcommon.utils;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import top.jolyoulu.common.entity.ResultInfo;
+import top.jolyoulu.webcommon.entity.ResultInfo;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

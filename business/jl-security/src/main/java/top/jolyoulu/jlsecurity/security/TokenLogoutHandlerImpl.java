@@ -2,9 +2,9 @@ package top.jolyoulu.jlsecurity.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
-import top.jolyoulu.common.constant.GlobalConstant;
-import top.jolyoulu.common.constant.RedisConstant;
-import top.jolyoulu.jlsecurity.security.TokenManager;
+
+import top.jolyoulu.corecommon.constant.GlobalConstant;
+import top.jolyoulu.corecommon.constant.RedisConstant;
 import top.jolyoulu.modules.redismodule.utils.RedisUtils;
 
 import javax.servlet.http.HttpServletRequest;

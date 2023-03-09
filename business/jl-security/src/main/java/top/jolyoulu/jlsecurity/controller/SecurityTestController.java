@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import top.jolyoulu.common.entity.ResultInfo;
+import top.jolyoulu.webcommon.entity.ResultInfo;
 
 import java.util.Collection;
 

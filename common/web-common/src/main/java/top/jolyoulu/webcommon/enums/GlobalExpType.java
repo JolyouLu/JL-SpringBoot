@@ -1,4 +1,4 @@
-package top.jolyoulu.common.enums;
+package top.jolyoulu.webcommon.enums;
 
 import lombok.Data;
 

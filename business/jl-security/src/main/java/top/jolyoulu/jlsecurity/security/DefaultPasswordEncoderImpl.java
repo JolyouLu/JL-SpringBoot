@@ -2,7 +2,7 @@ package top.jolyoulu.jlsecurity.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import top.jolyoulu.common.utils.MD5Utils;
+import top.jolyoulu.corecommon.utils.MD5Utils;
 
 /**
  * @Author: JolyouLu

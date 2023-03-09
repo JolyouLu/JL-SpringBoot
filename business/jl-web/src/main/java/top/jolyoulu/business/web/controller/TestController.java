@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import top.jolyoulu.business.web.dao.Course1Mapper;
 import top.jolyoulu.business.web.entity.Course1;
-import top.jolyoulu.common.enums.GlobalExpType;
-import top.jolyoulu.common.exception.GlobalException;
 import top.jolyoulu.modules.apiversionmodule.apiverion.ApiVersion;
 import top.jolyoulu.modules.redismodule.utils.RedisUtils;
+import top.jolyoulu.webcommon.enums.GlobalExpType;
+import top.jolyoulu.webcommon.excption.GlobalException;
 
 import java.util.Random;
 import java.util.UUID;
