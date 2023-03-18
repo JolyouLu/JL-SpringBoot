@@ -7,6 +7,9 @@
         <artifactId>JL-SpringBoot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <modules>
+        <module>web-bootstrap</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -15,56 +18,9 @@
     </properties>
 
     <artifactId>bootstrap</artifactId>
-    <packaging>jar</packaging>
-
-    <dependencies>
-        <!--jl-web Demo(测试用)-->
-        <dependency>
-            <groupId>top.jolyoulu</groupId>
-            <artifactId>jl-web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <!--jl-security Demo-->
-<!--        <dependency>-->
-<!--            <groupId>top.jolyoulu</groupId>-->
-<!--            <artifactId>jl-security</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
-
-        <!--jl-wechatpub Demo-->
-<!--        <dependency>-->
-<!--            <groupId>top.jolyoulu</groupId>-->
-<!--            <artifactId>jl-wechatpub</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
-
-        <!--jl-netty Demo-->
-<!--        <dependency>-->
-<!--            <groupId>top.jolyoulu</groupId>-->
-<!--            <artifactId>jl-netty</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
-
-        <!--jl-webVue Demo-->
-<!--        <dependency>-->
-<!--            <groupId>top.jolyoulu</groupId>-->
-<!--            <artifactId>jl-webVue</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
-    </dependencies>
+    <packaging>pom</packaging>
 
     <build>
         <finalName>bootstrap</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${springboot.version}</version>
-                <configuration>
-                    <mainClass>top.jolyoulu.bootstrap.BootstrapApplication</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 </project>

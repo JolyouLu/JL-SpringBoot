@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>top.jolyoulu</groupId>
+        <artifactId>bootstrap</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <artifactId>web-bootstrap</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--jl-web Demo(测试用)-->
+        <dependency>
+            <groupId>top.jolyoulu</groupId>
+            <artifactId>jl-web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--jl-security Demo-->
+<!--        <dependency>-->
+<!--            <groupId>top.jolyoulu</groupId>-->
+<!--            <artifactId>jl-security</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+        <!--jl-wechatpub Demo-->
+        <!--        <dependency>-->
+        <!--            <groupId>top.jolyoulu</groupId>-->
+        <!--            <artifactId>jl-wechatpub</artifactId>-->
+        <!--            <version>0.0.1-SNAPSHOT</version>-->
+        <!--        </dependency>-->
+
+        <!--jl-netty Demo-->
+        <!--        <dependency>-->
+        <!--            <groupId>top.jolyoulu</groupId>-->
+        <!--            <artifactId>jl-netty</artifactId>-->
+        <!--            <version>0.0.1-SNAPSHOT</version>-->
+        <!--        </dependency>-->
+
+        <!--jl-webVue Demo-->
+        <!--        <dependency>-->
+        <!--            <groupId>top.jolyoulu</groupId>-->
+        <!--            <artifactId>jl-webVue</artifactId>-->
+        <!--            <version>0.0.1-SNAPSHOT</version>-->
+        <!--        </dependency>-->
+    </dependencies>
+
+    <build>
+        <finalName>web-bootstrap</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${springboot.version}</version>
+                <configuration>
+                    <mainClass>top.jolyoulu.bootstrap.BootstrapApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
