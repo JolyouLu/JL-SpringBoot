@@ -25,7 +25,7 @@ public class MD5Utils {
      * @param input 加密内容
      * @return 返回16进制字符串
      */
-    public static String encrypt(String input){
+    public static String encode(String input){
         return toHexStr(md5.digest(input.getBytes()));
     }
 
@@ -35,7 +35,7 @@ public class MD5Utils {
      * @param salt 加盐
      * @return 返回16进制字符串
      */
-    public static String encrypt(String input,String salt){
+    public static String encode(String input, String salt){
         return toHexStr(md5.digest((input + salt).getBytes()));
     }
 
@@ -56,6 +56,6 @@ public class MD5Utils {
     }
 
     public static void main(String[] args) {
-        System.out.println(MD5Utils.encrypt("123456"));
+        System.out.println(MD5Utils.encode("123456"));
     }
 }

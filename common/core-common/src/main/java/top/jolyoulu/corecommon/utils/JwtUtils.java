@@ -23,7 +23,7 @@ public class JwtUtils {
      * @param singKey 密钥
      * @return 数据声明
      */
-    public static Claims decrypt(String token, String singKey)
+    public static Claims decode(String token, String singKey)
     {
         return Jwts.parser()
                 .setSigningKey(singKey)
@@ -38,7 +38,7 @@ public class JwtUtils {
      * @param singKey 密钥
      * @return 令牌
      */
-    public static String encrypt(Map<String, Object> claims,String singKey)
+    public static String encode(Map<String, Object> claims,String singKey)
     {
         String token = Jwts.builder()
                 .setClaims(claims)
@@ -50,9 +50,9 @@ public class JwtUtils {
         //测试jwt工具类的使用
         Map<String, Object> claims = new HashMap<>();
         claims.put("token", 123);
-        String jwt = JwtUtils.encrypt(claims,"jolyoulu");
+        String jwt = JwtUtils.encode(claims,"jolyoulu");
         System.out.println(jwt);
-        Claims token = JwtUtils.decrypt(jwt,"jolyoulu");
+        Claims token = JwtUtils.decode(jwt,"jolyoulu");
         System.out.println(token.get("token"));
     }
 }
