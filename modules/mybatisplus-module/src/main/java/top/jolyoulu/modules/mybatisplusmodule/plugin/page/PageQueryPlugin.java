@@ -7,9 +7,9 @@ import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
-import top.jolyoulu.modules.mybatisplusmodule.plugin.AbstractPlugin;
-import top.jolyoulu.modules.mybatisplusmodule.plugin.utils.MybatisPluginUtil;
-import top.jolyoulu.modules.mybatisplusmodule.plugin.utils.StatementHandlerMetaObject;
+import top.jolyoulu.mybatis.plugin.AbstractPlugin;
+import top.jolyoulu.mybatis.utils.MybatisPluginUtil;
+import top.jolyoulu.mybatis.utils.StatementHandlerMetaObject;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -47,10 +47,11 @@ public class PageQueryPlugin extends AbstractPlugin implements Interceptor {
         log("执行的mapperId ==> {}", mappedId);
 
         //获取sql的参数,获取查询里面的page参数
-        Map<String, Object> sqlParam = MybatisPluginUtil.getSqlParam(statementHandler);
-        JlPage jlPage = getJlPage(sqlParam);
+//        Map<String, Object> sqlParam = MybatisPluginUtil.getSqlParam(statementHandler);
+//        JlPage jlPage = getJlPage(sqlParam);
+        JlPage<?> jlPage = JlPageLocal.get();
         if (!Objects.isNull(jlPage)) { //找不到就直接过了
-            if (jlPage.isOptimize()){
+            if (jlPage.getOptimize()){
                 optimizeCount(invocation,metaObject,jlPage);
             }else {
                 notOptimizeCount(invocation,metaObject,jlPage);
