@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import top.jolyoulu.modules.mybatisplusmodule.plugin.dataMask.DataMaskPlugin;
+import top.jolyoulu.modules.mybatisplusmodule.plugin.page.PageQueryPlugin;
 import top.jolyoulu.modules.mybatisplusmodule.plugin.sqllog.SqlLogPlugin;
 
 import javax.sql.DataSource;
@@ -36,8 +37,8 @@ public class MybatisPlusConfig {
         );
         factoryBean.setDataSource(dataSource);
         MybatisConfiguration configuration = new MybatisConfiguration();
-        configuration.addInterceptor(new DataMaskPlugin());
-        configuration.addInterceptor(new SqlLogPlugin());
+        //添加插件
+        configuration.addInterceptor(new PageQueryPlugin());
         factoryBean.setConfiguration(configuration);
         return factoryBean.getObject();
     }

@@ -16,8 +16,7 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.TypeHandlerRegistry;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
+import top.jolyoulu.modules.mybatisplusmodule.plugin.AbstractPlugin;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,9 +35,8 @@ import java.util.Objects;
         @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class})
 })
 @Slf4j
-@Profile({"dev", "test"})
-@Component
-public class SqlLogPlugin implements Interceptor {
+public class SqlLogPlugin extends AbstractPlugin implements Interceptor {
+
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         //获取 MappedStatement(mapper映射)
