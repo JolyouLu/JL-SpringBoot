@@ -7,9 +7,9 @@ import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
-import top.jolyoulu.mybatis.plugin.AbstractPlugin;
-import top.jolyoulu.mybatis.utils.MybatisPluginUtil;
-import top.jolyoulu.mybatis.utils.StatementHandlerMetaObject;
+import top.jolyoulu.modules.mybatisplusmodule.plugin.AbstractPlugin;
+import top.jolyoulu.modules.mybatisplusmodule.plugin.utils.MybatisPluginUtil;
+import top.jolyoulu.modules.mybatisplusmodule.plugin.utils.StatementHandlerMetaObject;
 
 import java.sql.Connection;
 import java.sql.SQLException;
