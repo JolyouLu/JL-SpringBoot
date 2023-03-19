@@ -8,16 +8,7 @@ import lombok.Data;
  * @Description
  */
 @Data
-public class PageBO {
+public class JlPageBO {
     private Long page = 1L;
     private Long pageSize = 1L;
-
-
-    public class Test extends PageBO{
-
-    }
-
-    public void main(String[] args) {
-        JlPage<Test> page1 = JlPage.getPage(new Test());
-    }
 }

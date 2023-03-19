@@ -31,7 +31,7 @@ public class JlPage<T> {
      * @return
      * @param <T>
      */
-    public static <T extends PageBO> JlPage<T> getPage(T bo){
+    public static <T extends JlPageBO> JlPage<T> getPage(T bo){
         return new JlPage<T>(bo.getPage(),bo.getPageSize());
     }
 
