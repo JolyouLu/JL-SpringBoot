@@ -1,8 +1,13 @@
 package top.jolyoulu.modules.mybatisplusmodule.plugin.utils;
 
+import org.apache.ibatis.cache.CacheKey;
+import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
+import org.apache.ibatis.executor.result.DefaultResultHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
+import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.session.RowBounds;
 
 import java.sql.*;
 import java.util.Map;
@@ -13,37 +18,40 @@ import java.util.function.Consumer;
  * @Date: 2023/3/19 15:02
  * @Description
  */
-public class MybatisPluginUtil{
+public class MybatisPluginUtil {
 
     /**
      * 获取StatementHandler的Sql字符串
+     *
      * @param statementHandler
      * @return
      */
-    public static String getRawSqlStr(StatementHandler statementHandler){
+    public static String getRawSqlStr(StatementHandler statementHandler) {
         BoundSql boundSql = statementHandler.getBoundSql();
         return boundSql.getSql();
     }
 
     /**
      * 获取StatementHandler的Sql参数
+     *
      * @param statementHandler
      * @return
      */
-    public static Map<String,Object> getSqlParam(StatementHandler statementHandler){
+    public static Map<String, Object> getSqlParam(StatementHandler statementHandler) {
         BoundSql boundSql = statementHandler.getBoundSql();
         return (Map<String, Object>) boundSql.getParameterObject();
     }
 
     /**
      * 执行一条sql
-     * @param conn 拦截器
+     *
+     * @param conn             拦截器
      * @param parameterHandler sql中的参数
-     * @param sql sql语句
-     * @param resulHandle 结果处理者
+     * @param sql              sql语句
+     * @param resulHandle      结果处理者
      * @throws SQLException
      */
-    public static void runQuerySql(Connection conn, ParameterHandler parameterHandler,String sql, Consumer<ResultSet> resulHandle) throws SQLException {
+    public static void runQuerySql(Connection conn, ParameterHandler parameterHandler, String sql, Consumer<ResultSet> resulHandle) throws SQLException {
         PreparedStatement countStatement = conn.prepareStatement(sql);
         parameterHandler.setParameters(countStatement);
         ResultSet rs = countStatement.executeQuery();
@@ -53,9 +61,26 @@ public class MybatisPluginUtil{
     }
 
     /**
+     * 执行一条sql
+     *
+     * @param executor
+     * @param ms
+     * @param parameter
+     * @param cacheKey
+     * @param boundSql
+     * @param resulHandle
+     * @throws SQLException
+     */
+    public static void runQuerySql(Executor executor, MappedStatement ms, Object parameter, CacheKey cacheKey, BoundSql boundSql, Consumer<DefaultResultHandler> resulHandle) throws SQLException {
+        DefaultResultHandler resultHandler = new DefaultResultHandler();
+        executor.query(ms, parameter, RowBounds.DEFAULT, resultHandler, cacheKey, boundSql);
+        resulHandle.accept(resultHandler);
+    }
+
+    /**
      * statementHandler 转成 metaObject
      */
-    public static StatementHandlerMetaObject transition(StatementHandler statementHandler){
+    public static StatementHandlerMetaObject transition(StatementHandler statementHandler) {
         return new StatementHandlerMetaObject(statementHandler);
     }
 
@@ -70,9 +95,9 @@ public class MybatisPluginUtil{
             System.out.print(metaData.getColumnName(i) + "\t");
         }
         System.out.println();
-        while (resultSet.next()){
+        while (resultSet.next()) {
             for (int i = 1; i < columnCount; i++) {
-                System.out.print(resultSet.getString(i)+"\t");
+                System.out.print(resultSet.getString(i) + "\t");
             }
             System.out.println();
         }

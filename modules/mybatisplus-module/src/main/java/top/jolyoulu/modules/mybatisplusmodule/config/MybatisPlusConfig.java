@@ -1,8 +1,10 @@
 package top.jolyoulu.modules.mybatisplusmodule.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
+import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
@@ -36,8 +38,16 @@ public class MybatisPlusConfig {
                 new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/**/*.xml")
         );
         factoryBean.setDataSource(dataSource);
-        MybatisConfiguration configuration = new MybatisConfiguration();
+        //全局配置
+        GlobalConfig globalConfig = new GlobalConfig();
+        globalConfig.setDbConfig(new GlobalConfig.DbConfig()
+                .setLogicDeleteField("delFlag")
+                .setLogicNotDeleteValue("0")
+                .setLogicDeleteValue("1")
+                .setIdType(IdType.ASSIGN_UUID));
+        factoryBean.setGlobalConfig(globalConfig);
         //添加插件
+        MybatisConfiguration configuration = new MybatisConfiguration();
         configuration.addInterceptor(new PageQueryPlugin());
         factoryBean.setConfiguration(configuration);
         return factoryBean.getObject();
