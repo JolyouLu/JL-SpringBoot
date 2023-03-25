@@ -23,7 +23,7 @@ public class DESUtils {
      * @return
      * @throws Exception
      */
-    public static String encode(String input, String key){
+    public static String encrypt(String input, String key){
         try {
             if (key.length() != 8){
                 throw new IllegalArgumentException("The key length must be equal to 8");
@@ -58,7 +58,7 @@ public class DESUtils {
      * @return
      * @throws Exception
      */
-    public static String decode(String input, String key){
+    public static String decrypt(String input, String key){
         try {
             if (key.length() != 8){
                 throw new IllegalArgumentException("The key length must be equal to 8");
@@ -94,10 +94,10 @@ public class DESUtils {
         //定义密钥（使用DES加密，密钥必须是8字节）
         String key = "12345678";
         System.out.println("<======加密======>");
-        String encryptDES = encode(input, key);
+        String encryptDES = encrypt(input, key);
         System.out.println(encryptDES);
         System.out.println("<======解密======>");
-        String decryptDES = decode(encryptDES, key);
+        String decryptDES = decrypt(encryptDES, key);
         System.out.println(decryptDES);
     }
 
