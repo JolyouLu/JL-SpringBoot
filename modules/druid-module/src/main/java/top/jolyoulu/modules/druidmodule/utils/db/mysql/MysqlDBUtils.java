@@ -1,9 +1,10 @@
-package top.jolyoulu.modules.druidmodule.utils.db;
+package top.jolyoulu.modules.druidmodule.utils.db.mysql;
 
 import lombok.extern.slf4j.Slf4j;
 import top.jolyoulu.modules.druidmodule.constant.DBConstant;
 import top.jolyoulu.modules.druidmodule.entity.TableColumnInfo;
 import top.jolyoulu.modules.druidmodule.entity.TableInfo;
+import top.jolyoulu.modules.druidmodule.utils.db.AbstractDBUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
  * 可使用 桥接模式 优化
  */
 @Slf4j
-public class MysqlDBUtils extends DBUtils {
+public class MysqlDBUtils extends AbstractDBUtils implements MysqlDB {
 
     private MysqlDBUtils(Connection connection) {
         super(connection);
@@ -31,7 +32,7 @@ public class MysqlDBUtils extends DBUtils {
      * @param password 密码
      * @return
      */
-    protected static DBUtils build(String host,String port, String username, String password) {
+    public static MysqlDBUtils build(String host, String port, String username, String password) {
         try {
             //注册驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -52,7 +53,7 @@ public class MysqlDBUtils extends DBUtils {
      * @param password 密码
      * @return
      */
-    protected static DBUtils build(String url, String username, String password) {
+    public static MysqlDBUtils build(String url, String username, String password) {
         try {
             //注册驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -70,7 +71,7 @@ public class MysqlDBUtils extends DBUtils {
      *
      * @return
      */
-    protected static DBUtils build(Connection connection) {
+    public static MysqlDBUtils build(Connection connection) {
         try {
             return new MysqlDBUtils(connection);
         } catch (Exception e) {
@@ -212,7 +213,7 @@ public class MysqlDBUtils extends DBUtils {
     }
 
     public static void main(String[] args) {
-        DBUtils utils = DBUtilsFactory.creatDBUtils(DBType.MYSQL, "localhost","3306", "root", "123456");
+        MysqlDBUtils utils = MysqlDBUtils.build("localhost","3306", "root", "123456");
         System.out.println(utils.check());
         System.out.println(utils.selectDatabases());
         System.out.println(utils.selectTables("codegen"));
