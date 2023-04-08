@@ -32,6 +32,15 @@ public class MD5Utils {
     /**
      * MD5加密
      * @param input 加密内容
+     * @return 返回16进制字符串
+     */
+    public static String encode(byte[] input){
+        return toHexStr(md5.digest(input));
+    }
+
+    /**
+     * MD5加密
+     * @param input 加密内容
      * @param salt 加盐
      * @return 返回16进制字符串
      */
