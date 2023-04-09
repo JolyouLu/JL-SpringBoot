@@ -1,11 +1,12 @@
 package top.jolyoulu.webcommon.utils;
 
-import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import top.jolyoulu.webcommon.entity.ResultInfo;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * @Author: JolyouLu
@@ -23,6 +24,22 @@ public class ResponseUtils {
         response.setStatus(200);
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
-        response.getWriter().println(JSONObject.toJSONString(resultInfo));
+        try(PrintWriter writer = response.getWriter()) {
+            writer.println(JSONObject.toJSONString(resultInfo));
+        }
+    }
+
+    /**
+     * 返回二进制流结果给前端
+     * @param response response
+     * @param stream 流
+     */
+    public static void outStream(HttpServletResponse response, byte[] stream) throws IOException {
+        response.setStatus(200);
+        response.setContentType("application/octet-stream");
+        response.setCharacterEncoding("utf-8");
+        try(ServletOutputStream os = response.getOutputStream()) {
+            os.write(stream);
+        }
     }
 }
